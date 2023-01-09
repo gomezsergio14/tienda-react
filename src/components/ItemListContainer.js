@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Item from "./Item";
 
 function ItemListContainer(props){
     /*AQUI TENES QUE CREAR TU LISTA DE PRODUCTOS
@@ -67,10 +67,10 @@ function ItemListContainer(props){
     <>
         <h1 style={miColor}>{props.text}</h1>
         <div className="d-flex">
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        <Item/>
+        <Item/>
+        <Item/>
+        <Item/>
         </div>
     </>    
     )

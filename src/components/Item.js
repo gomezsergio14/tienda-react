@@ -1,6 +1,6 @@
 // import React from "react";
 
-function Card() {
+function Item() {
     const estilos={
         width:"18rem",
     }
@@ -17,4 +17,4 @@ function Card() {
         );
 }
 
-export default Card;
+export default Item;
