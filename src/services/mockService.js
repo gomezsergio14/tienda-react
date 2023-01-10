@@ -60,4 +60,16 @@ const ObtenerProductos=()=>{
         },3000);
     });
 };
+
+const ObtenerProducto=()=>{
+    return new Promise((resolve,reject)=>{
+        let error=false;
+        setTimeout(()=>{
+            if(error) reject("usuario no autorizado");
+            else resolve(misProductos[0]);
+        },3000);
+    });
+};
+
 export default ObtenerProductos;
+export {ObtenerProducto};
