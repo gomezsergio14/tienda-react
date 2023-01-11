@@ -60,4 +60,17 @@ const ObtenerProductos=()=>{
         },3000);
     });
 };
+
+const ObtenerProducto=()=>{
+  return new Promise((resolve,reject)=>{
+      console.log("conectando al backend...");
+      let error=false;
+      setTimeout(()=>{
+          if(error) reject("producto no encontrado?");
+          else resolve(misProductos[1]);
+      },3000);
+  });
+};
+
 export default ObtenerProductos;
+export { ObtenerProducto };
