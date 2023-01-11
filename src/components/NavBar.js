@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 function NavBar(){
@@ -7,23 +8,23 @@ function NavBar(){
     return(
 <nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">LOGO<span style={miColor}>3D</span></a>
+    <Link className="navbar-brand" to="/">LOGO<span style={miColor}>3D</span></Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarNavDropdown">
       <ul className="navbar-nav ms-auto">
         <li className="nav-item">
-          <a className="nav-link" aria-current="page" href="#">Impresoras 3D</a>
+          <Link className="nav-link" aria-current="page" to="categoria/impresoras3d">Impresoras 3D</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Filamentos</a>
+          <Link className="nav-link" to="categoria/filamentos">Filamentos</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Repuestos</a>
+          <Link className="nav-link" to="categoria/repuestos">Repuestos</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#"><CartWidget /></a>
+          <Link className="nav-link" to="carrito"><CartWidget /></Link>
         </li>
       </ul>
     </div>
