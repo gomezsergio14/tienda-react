@@ -15,7 +15,7 @@ function NavBar(){
     <div className="collapse navbar-collapse" id="navbarNavDropdown">
       <ul className="navbar-nav ms-auto">
         <li className="nav-item">
-          <Link className="nav-link" aria-current="page" to="categoria/impresoras3d">Impresoras 3D</Link>
+          <Link className="nav-link" aria-current="page" to="categoria/impresora">Impresoras 3D</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="categoria/filamentos">Filamentos</Link>

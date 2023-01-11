@@ -1,14 +1,24 @@
 import { useState , useEffect } from "react";
 import Item from "./Item";
-import ObtenerProductos from "../services/mockService";
+import ObtenerProductos, { ObtenerProductoPorCategoria } from "../services/mockService";
+import { useParams } from "react-router-dom";
 
 function ItemListContainer(props){
-    const [productos,setProductos]=useState([])
+    const [productos,setProductos]=useState([]);
+    let { nombreCategoria } = useParams();
+
     useEffect(()=>{
-        ObtenerProductos().then((respuesta)=>{
+        if(!nombreCategoria) { 
+        ObtenerProductos()
+            .then((respuesta)=>{
             setProductos(respuesta);
-        });
-    },[]);
+        });}
+        else {
+            ObtenerProductoPorCategoria(nombreCategoria)
+            .then((respuesta)=>{
+                setProductos(respuesta);});
+        }
+    },[nombreCategoria]);
     
     const miColor={
         color: "#500ccf",
