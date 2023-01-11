@@ -61,13 +61,12 @@ const ObtenerProductos=()=>{
     });
 };
 
-const ObtenerProducto=()=>{
+const ObtenerProducto=(id)=>{
   return new Promise((resolve,reject)=>{
-      console.log("conectando al backend...");
-      let error=false;
-      setTimeout(()=>{
-          if(error) reject("producto no encontrado?");
-          else resolve(misProductos[1]);
+      const reqItem = misProductos.find( (item) => {return ( item.id === Number(id) ) } )
+      
+      setTimeout(()=>{  
+          resolve(reqItem);
       },3000);
   });
 };
