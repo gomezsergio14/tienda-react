@@ -12,7 +12,7 @@ function ItemDetailContainer() {
         .then( (respuesta)=>{
             setProducto(respuesta);
         });
-    },[]);
+    },[parametro.id]);
 
     return (
     <ItemDetail id={producto.id} title={producto.title} detail={producto.detail} imgurl={producto.imgurl}/>
