@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemCount from './ItemCount'
 
 function ItemDetail({id,title,detail,imgurl}) {
     const estilosi={
@@ -12,6 +13,8 @@ function ItemDetail({id,title,detail,imgurl}) {
                 <p className="card-text">
                     {detail}
                 </p>  
+                <ItemCount stock={7} />
+                
                 </div>
             </div>
   )
