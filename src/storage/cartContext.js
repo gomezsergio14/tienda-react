@@ -35,8 +35,14 @@ function CartProvider(props){
     }
 
     function getTotalItemsInCart(){
-        console.log("total de items");
-        let total=5;
+        let total=0;
+        
+        if(cart){
+            cart.map((e)=>{
+                let monto=e.count
+                return total+=monto
+            })}
+        console.log("total de items: "+total);
         return total;
     }
 
