@@ -11,7 +11,7 @@ function ItemDetailContainer() {
     function handleAddToCart(count){
         //const agregoCount=[...{id,title,detail,imgurl},count];//ESTO ESTA BIEN?
         console.log(`se agregaron ${count} items al carrito...`);
-        addToCart(count);
+        addToCart({...producto, count:count});//AQUI DEBERIAS PASAR EL TITLE O PRODUCTO?aqui pasabas count
         }
     
     const parametro = useParams();
