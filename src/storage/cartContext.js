@@ -10,14 +10,13 @@ function CartProvider(props){
     function addToCart(item){
         let isInCart = cart.findIndex( itemInCart => itemInCart.id === item.id );
         let newCart = cart.map((item)=>item);
+        let quantity = item.count;
         
         
         if(isInCart !== -1){
-            for(let i=0 ; i < cart.length ; i++){
-                if(cart[i].id===item.id){
-                    cart[i].count+=item.count;
-                }
-            }
+            //cart[isInCart].count+=quantity;
+            newCart[isInCart].count+=quantity;
+            setCart(newCart);
         }
         else {
             newCart.push(item);
@@ -37,10 +36,16 @@ function CartProvider(props){
 
     function getTotalItemsInCart(){
         console.log("total de items");
+        let total=5;
+        return total;
+    }
+
+    function getTotalPriceInCart(){
+        return 100;
     }
 
     return (
-        <cartContext.Provider value={{cart, addToCart}}>
+        <cartContext.Provider value={{cart, addToCart, getTotalItemsInCart, clear, removeItem, getTotalPriceInCart}}>
             {props.children}
         </cartContext.Provider>
     )
