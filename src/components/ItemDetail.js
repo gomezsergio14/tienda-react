@@ -1,8 +1,8 @@
 import React from 'react'
-
+import { Link } from "react-router-dom"
 import ItemCount from './ItemCount'
 
-function ItemDetail({id,title,detail,imgurl,onAddToCart}) {
+function ItemDetail({id,title,detail,price,stock,imgurl,onAddToCart,isInCart}) {
     const estilosi={
         width:"18rem",
     }
@@ -14,8 +14,20 @@ function ItemDetail({id,title,detail,imgurl,onAddToCart}) {
                 <p className="card-text">
                     {detail}
                 </p>  
-                <ItemCount stock={7} onAddToCart={onAddToCart}/>
-                <button>Ir al carrito</button>
+                <p className="card-text">
+                    precio: ${price}
+                </p>
+                <p className="card-text">
+                    Stock disponible: {stock}
+                </p>
+                { isInCart ?
+                    <Link to="cart" className="btn btn-primary">Ir al carrito </Link>
+                    :
+                    (<ItemCount stock={7} onAddToCart={onAddToCart}/>)
+                }
+                {/* <ItemCount stock={7} onAddToCart={onAddToCart}/>
+                <Link to="cart" className="btn btn-primary">Ir al carrito </Link> */}
+                
                 </div>
             </div>
   )

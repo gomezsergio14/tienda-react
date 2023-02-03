@@ -6,9 +6,11 @@ import { cartContext } from '../storage/cartContext'
 
 function ItemDetailContainer() {
     const [producto,setProducto] = useState([]);
+    const [isInCart,setIsInCart] = useState(false);
     const {addToCart}= useContext(cartContext);
 
     function handleAddToCart(count){
+        setIsInCart(true);
         //const agregoCount=[...{id,title,detail,imgurl},count];//ESTO ESTA BIEN?
         console.log(`se agregaron ${count} items al carrito...`);
         addToCart({...producto, count:count});//AQUI DEBERIAS PASAR EL TITLE O PRODUCTO?aqui pasabas count
@@ -24,7 +26,15 @@ function ItemDetailContainer() {
     },[parametro.id]);
 
     return (
-    <ItemDetail onAddToCart={handleAddToCart} id={producto.id} title={producto.title} detail={producto.detail} imgurl={producto.imgurl}/>
+    <ItemDetail 
+    isInCart={isInCart} 
+    onAddToCart={handleAddToCart} 
+    id={producto.id} 
+    title={producto.title} 
+    detail={producto.detail} 
+    price={producto.price} 
+    stock={producto.stock}
+    imgurl={producto.imgurl}/>
     )
 }
 

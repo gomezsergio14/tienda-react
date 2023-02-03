@@ -39,7 +39,7 @@ function ItemListContainer(props){
             :(
             <div className="row d-flex justify-content-center">
             {
-                productos.map((item)=>{return <Item item={item}/>})
+                productos.map((item)=>{return <Item key={item.id} item={item}/>})
             }
              {/* <Item item={Item}/>  */}
         </div>
