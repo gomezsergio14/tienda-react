@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { ObtenerProducto } from '../services/mockService';
+import { ObtenerProducto } from '../services/firebase';
 import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
 import { cartContext } from '../storage/cartContext'
