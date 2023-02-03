@@ -47,7 +47,15 @@ function CartProvider(props){
     }
 
     function getTotalPriceInCart(){
-        return 100;
+        let total=0;
+        
+        if(cart){
+            cart.map((e)=>{
+                let monto=e.count*e.price
+                return total+=monto
+            })}
+        console.log("total de items: "+total);
+        return total;
     }
 
     return (
