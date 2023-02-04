@@ -26,23 +26,34 @@ function CartContainer() {
             const MySwal = withReactContent(Swal)
 
             MySwal.fire({
-            title: 'Compra realizada!',
-            icon: 'success',
+            title: 'Desea finalizar la compra?',
+            showDenyButton: true,
+            icon: 'warning',
             confirmButtonText: 'Ok',
-            })
+            denyButtonText: `Seguir comprando`,
+            }).then((result) => {
+                
+                if (result.isConfirmed) {
+                    MySwal.fire('Gracias por tu compra!', '', 'success');
+                    navigateTo("/");
+                } else if (result.isDenied) {
+                    MySwal.fire('Continua con tu compra', '', 'info');
+                    navigateTo("/cart");
+                }
+                })
 
         })
     }
     return (
-        <div>
+        <div className="container-fluid">
         {
             cart.map(itemInCart=>(
-                <div>
+                <div className="row mt-3 mx-auto">
                     {/* <h2>{itemInCart.id}</h2> */}
-                    <h6>{itemInCart.title}</h6>
-                    <h6>{itemInCart.detail}</h6>
-                    <h6>{itemInCart.count}</h6>
-                    <button onClick={()=>removeItem(itemInCart)} className="btn btn-danger">X</button>
+                    <h6 className="col">{itemInCart.title}</h6>
+                    <h6 className="col">{itemInCart.detail}</h6>
+                    <h6 className="col">{itemInCart.count}</h6>
+                    <button onClick={()=>removeItem(itemInCart)} className="btn btn-danger col">X</button>
                 </div>
             ))
         }
