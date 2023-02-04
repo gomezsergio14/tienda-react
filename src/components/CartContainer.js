@@ -3,9 +3,11 @@ import { CreateOrder } from '../services/firebase';
 import { cartContext } from '../storage/cartContext';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content'
+import { useNavigate } from 'react-router-dom';
 
 function CartContainer() {
     const {cart, removeItem, getTotalPriceInCart} = useContext(cartContext);
+    const navigateTo = useNavigate();
 
     function handleCheckout(){
         const items = cart.map(item => ({id: item.id,price: item.price,count:item.count,title:item.title}));

@@ -23,7 +23,7 @@ function ItemDetail({id,title,detail,price,stock,imgurl,onAddToCart,isInCart}) {
                 { isInCart ?
                     <Link to="cart" className="btn btn-primary">Ir al carrito </Link>
                     :
-                    (<ItemCount stock={7} onAddToCart={onAddToCart}/>)
+                    (<ItemCount stock={stock} onAddToCart={onAddToCart}/>)
                 }
                 {/* <ItemCount stock={7} onAddToCart={onAddToCart}/>
                 <Link to="cart" className="btn btn-primary">Ir al carrito </Link> */}

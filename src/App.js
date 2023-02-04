@@ -6,11 +6,13 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CartProvider } from './storage/cartContext';
 import CartContainer from './components/CartContainer';
+import { exportArray } from './services/firebase';
 
 
 function App() {
   return (
     <div>
+      <button onClick={exportArray}>Cargar productos</button>
       <CartProvider>
       <BrowserRouter>
       <NavBar/>
