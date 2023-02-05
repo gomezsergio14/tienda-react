@@ -6,7 +6,7 @@ import withReactContent from 'sweetalert2-react-content'
 import { useNavigate } from 'react-router-dom';
 
 function CartContainer() {
-    const {cart, removeItem, getTotalPriceInCart} = useContext(cartContext);
+    const {cart, removeItem, getTotalPriceInCart, clear} = useContext(cartContext);
     const navigateTo = useNavigate();
 
     function handleCheckout(){
@@ -36,6 +36,7 @@ function CartContainer() {
                 if (result.isConfirmed) {
                     MySwal.fire('Gracias por tu compra!', '', 'success');
                     navigateTo("/");
+                    clear();
                 } else if (result.isDenied) {
                     MySwal.fire('Continua con tu compra', '', 'info');
                     navigateTo("/cart");
