@@ -27,7 +27,8 @@ function CartProvider(props){
     }
 
     function removeItem(itemId){
-        console.log("remover item");
+        setCart(cart.filter( (prod) => {
+        return prod !== itemId }));
     }
 
     function clear(){
@@ -42,7 +43,6 @@ function CartProvider(props){
                 let monto=e.count
                 return total+=monto
             })}
-        console.log("total de items: "+total);
         return total;
     }
 
@@ -54,7 +54,6 @@ function CartProvider(props){
                 let monto=e.count*e.price
                 return total+=monto
             })}
-        console.log("total de items: "+total);
         return total;
     }
 
